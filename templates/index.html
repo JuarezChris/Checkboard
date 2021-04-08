@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+    height: 70px;
+    width: 70px;
+}
+    .color1{
+        height:70px;
+        width:70px;
+        background-color: black;
+    }
+    .color2{
+        height:70px;
+        width:70px;
+        background-color: yellow;
+    }
+</style>
+<body>
+    <table>
+        {% for i in range(0,num1)%}
+        <tr>
+            {% for x in range(0,num2)%}
+            {% if (i+x) % 2 ==0%}
+                <td><div class="box" style="background-color: blue;"></div></td>
+            {% else %}
+                <td><div class="box" style="background-color: red;"></div></td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+
+<!-- THIS IS HOW I DID IT ORIGINALLY -->
+    <table>
+        {% for i in range(0,8): %}
+        <tr>
+            {% for x in range(0,8): %}
+            
+            <td><div class='color{{(i+x)%2+1}}'></div></td>
+            
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>
